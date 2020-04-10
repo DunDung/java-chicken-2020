@@ -9,16 +9,16 @@ public class MenuRepositoryTest {
 
 	@DisplayName("메뉴에 있는 번호인 경우")
 	@Test
-	void fromTest() {
+	void fromWithNumberTest() {
 		Menu expectedMenu = new Menu(1, "후라이드", Category.CHICKEN, 16_000);
 
-		assertThat(MenuRepository.from(1)).isEqualTo(expectedMenu);
+		assertThat(MenuRepository.fromWithNumber(1)).isEqualTo(expectedMenu);
 	}
 
 	@DisplayName("메뉴에 없는 번호인 경우")
 	@Test
-	void fromTest2() {
-		assertThatThrownBy(() -> MenuRepository.from(7))
+	void fromWithNumberTest2() {
+		assertThatThrownBy(() -> MenuRepository.fromWithNumber(7))
 			.isInstanceOf(IllegalArgumentException.class);
 	}
 }

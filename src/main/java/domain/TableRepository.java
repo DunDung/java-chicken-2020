@@ -21,7 +21,7 @@ public class TableRepository {
         return Collections.unmodifiableList(tables);
     }
 
-    public static Table from(int tableNo) {
+    public static Table fromWithNumber(int tableNo) {
         return tables.stream()
             .filter(table -> table.isMatch(tableNo))
             .findAny()

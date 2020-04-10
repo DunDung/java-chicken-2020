@@ -3,6 +3,8 @@ package domain;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class MenuRepository {
     private static final List<Menu> menus = new ArrayList<>();
@@ -23,10 +25,11 @@ public class MenuRepository {
         return Collections.unmodifiableList(menus);
     }
 
-    public static Menu from(int number) {
+    public static Menu fromWithNumber(int number) {
         return menus().stream()
             .filter(menu -> menu.isMatchNumber(number))
             .findFirst()
             .orElseThrow(() -> new IllegalArgumentException(NOT_MATCH_MENU_NUMBER_MESSAGE));
     }
+
 }
