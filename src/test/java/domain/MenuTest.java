@@ -8,7 +8,7 @@ public class MenuTest {
 
 	@Test
 	void isMatchNumberTest() {
-		Menu menu = MenuRepository.from(1);
+		Menu menu = MenuRepository.fromWithNumber(1);
 
 		assertThat(menu.isMatchNumber(1)).isTrue();
 	}
