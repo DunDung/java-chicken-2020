@@ -20,6 +20,6 @@ public class CalculationTest {
 	void calculateTest() {
 		Calculation calculation = orders.createCalculation();
 
-		assertThat(calculation.calculate()).isEqualTo(450_000);
+		assertThat(calculation.calculate()).isEqualTo(450000);
 	}
 }
