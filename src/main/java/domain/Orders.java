@@ -18,4 +18,9 @@ public class Orders {
 	public boolean isOrdered() {
 		return !orders.isEmpty();
 	}
+
+	public Calculation createCalculation() {
+		return new Calculation(orders);
+	}
+
 }
