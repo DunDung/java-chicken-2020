@@ -22,7 +22,7 @@ public class QuantityTest {
 
 	@DisplayName("add 성공")
 	@Test
-	void orderTest() {
+	void addTest() {
 		Quantity expectedQuantity = new Quantity(99);
 
 		assertThat(new Quantity(1).add(98)).isEqualTo(expectedQuantity);
@@ -30,7 +30,18 @@ public class QuantityTest {
 
 	@DisplayName("100이 넘어서 add가 실패하는 경우")
 	@Test
-	void orderTest2() {
+	void addrTest2() {
 		assertThatThrownBy(() -> new Quantity(1).add(99)).isInstanceOf(IllegalArgumentException.class);
+	}
+
+	@Test
+	void calculatePriceTest() {
+		assertThat(new Quantity(10).calculatePrice(1000)).isEqualTo(10000);
+	}
+
+	@Test
+	void divideDiscountedCountTest() {
+		assertThat(new Quantity(30).divideDiscountedCount()).isEqualTo(3);
+		assertThat(new Quantity(1).divideDiscountedCount()).isEqualTo(0);
 	}
 }

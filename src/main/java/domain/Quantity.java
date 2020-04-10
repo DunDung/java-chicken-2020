@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Quantity {
 	private static final int MAX = 99;
 	private static final String CANNOT_ORDER_QUANTITY_MESSAGE = "주문할 수 있는 수량이 아닙니다.";
+	private static final int DISCOUNTED_COUNT = 10;
 
 	private final int quantity;
 
@@ -17,6 +18,14 @@ public class Quantity {
 
 	public Quantity add(int quantity) {
 		return new Quantity(this.quantity + quantity);
+	}
+
+	public int calculatePrice(int price) {
+		return quantity * price;
+	}
+
+	public int divideDiscountedCount() {
+		return quantity / DISCOUNTED_COUNT;
 	}
 
 	@Override
