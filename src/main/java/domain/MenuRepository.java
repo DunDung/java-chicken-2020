@@ -6,6 +6,7 @@ import java.util.List;
 
 public class MenuRepository {
     private static final List<Menu> menus = new ArrayList<>();
+    private static final String NOT_MATCH_MENU_NUMBER_MESSAGE = "메뉴에 없는 번호입니다.";
 
     static {
         menus.add(new Menu(1, "후라이드", Category.CHICKEN, 16_000));
@@ -20,5 +21,12 @@ public class MenuRepository {
 
     public static List<Menu> menus() {
         return Collections.unmodifiableList(menus);
+    }
+
+    public static Menu from(int number) {
+        return menus().stream()
+            .filter(menu -> menu.isMatchNumber(number))
+            .findFirst()
+            .orElseThrow(() -> new IllegalArgumentException(NOT_MATCH_MENU_NUMBER_MESSAGE));
     }
 }
